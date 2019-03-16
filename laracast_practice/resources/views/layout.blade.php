@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> @yield('title') </title>
+    <title> </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 <body>
+	<div class ="container">
+		
+		@yield('content')
 
-	@yield('content')
+    </div>
     
-    <ul>
-     	
-     	<li><a href ="/"> Home  </a> </li> 
-     	<li><a href ="/contact"> Contact  </a> </li> 
-     	<li><a href ="/about"> About us  </a> </li> 
-     	
-    </ul>
 </body>
 </html>
