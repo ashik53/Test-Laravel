@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Project;
+
 class ProjectsController extends Controller
 {
     public function index(){
@@ -25,19 +26,11 @@ class ProjectsController extends Controller
         $validated = request()->validate([
 
             'title' => 'required|min:3',
-            'description' => 'required:min:4'
+            'description' => 'required|min:4'
+
         ]);
 
-
-        Project::create(
-            
-            request()->validate([
-                'title' => 'required|min:3',
-                'description' => 'required:min:4'
-            ]);
-        );
-    	
-
+        Project::create($validated);
     	
         /*$project = new Project();
 
