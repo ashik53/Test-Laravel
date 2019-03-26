@@ -44,4 +44,9 @@ return [
         ],
     ],
 
+    'twitter' => [
+        'key' => 'public-key',
+        'secret' => 'private-key',
+    ],
+
 ];

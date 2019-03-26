@@ -1,5 +1,14 @@
 <?php
 
+
+use App\Services\Twitter;
+
+use App\Services\Facebook;
+use App\Services\Google;
+
+use App\Repositories\UserRepository;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +26,36 @@ Route::get('/about','PagesController@about');
 */
 
 
+
+Route::get('/google', function(Google $google){
+
+	dd($google);
+
+	return view('welcome');
+
+});
+
+
+
+Route::get('/', function(Twitter $twitter){
+
+	dd($twitter);
+
+	return view('welcome');
+
+});
+
+
 Route::resource('projects','ProjectsController');
 
 Route::post('/projects/{project}/tasks', 'ProjectTaskController@store');
-Route::patch('/tasks/{task}', 'ProjectTaskController@update');
+
+//Route::patch('/tasks/{task}', 'ProjectTaskController@update');
+
+Route::post('/completed-tasks/{task}', 'CompletedTaskController@store');
+Route::delete('/completed-tasks/{task}', 'CompletedTaskController@destroy');
+
+
 /*
 Route::get('/projects', 'ProjectsController@index');
 Route::post('/projects', 'ProjectsController@store');

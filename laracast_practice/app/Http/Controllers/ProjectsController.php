@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
 use App\Project;
-
+use App\Services\Twitter;
 class ProjectsController extends Controller
 {
     public function index(){
@@ -44,7 +45,9 @@ class ProjectsController extends Controller
 
     } //func
 
-    public function show(Project $project){
+    public function show(Project $project, Twitter $twitter){
+
+        dd($twitter);
 
         return view('projects.show', compact('project'));
 

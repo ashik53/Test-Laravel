@@ -16,14 +16,21 @@
 		
 		@foreach($project->tasks as $task)
 
-			<form method="POST" action ="/tasks/{{ $task->id }}" >
-				@method('PATCH')
+			{{-- task check, uncheck (complete, incomplete form) --}}
+			<form method="POST" action ="/completed-tasks/{{ $task->id }}" >
+
+				@if ($task->completed)
+
+					@method('DELETE')
+
+				@endif
+
 				@csrf
 
 				<div class = "form-check">
 				  
 				  <label class ="form-check-label" for ="completed"  > 
-				     <input type="checkbox" name ="completed" class ="form-check-input"    onChange="this.form.submit()" {{ $task->completed ? 'checked' : ''}}> 
+				     <input type="checkbox" name ="completed" class ="form-check-input" onChange="this.form.submit()" {{ $task->completed ? 'checked' : ''}}> 
 
 				     {{ $task->description }}
 				     
@@ -42,7 +49,8 @@
 
 
 	{{-- add task --}}
-	<!--<form method ="POST" action ="/projects/{{ $project->id }}/tasks">
+	{{--
+	<form method ="POST" action ="/completed-tasks/{{ $task->id }}">
 	
 		{{ csrf_field() }}
 
@@ -53,9 +61,9 @@
 
 		<button type="submit" class = "btn btn-primary mt-1" >Create Task</button>
 
-	</form>  -->
+	</form>   --}}
 
-
+	{{-- add task form --}}
     <div class ="container">
 		<form method ="POST" action="/projects/{{ $project->id }}/tasks">
 
