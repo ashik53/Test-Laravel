@@ -36,17 +36,19 @@
         </style>
     </head>
     <body>
-          
-       @if (Auth::check())
-            <p> logged in</p>
-       @else
-            <p> not logged in</p>
+        <h3>
 
-       @endif
-
+            {{ dd(Auth::user()) }}
+             @if(Auth::check())
+                <h1> log in </h1>
+             @else
+                <h1> not log in</h1>
+             @endif 
+        </h3>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Welcome page</div>
+                <p> </p>
             </div>
         </div>
     </body>

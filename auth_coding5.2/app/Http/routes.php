@@ -1,5 +1,7 @@
 <?php
 
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -12,6 +14,8 @@
 */
 
 Route::get('/', function () {
+
+
     return view('welcome');
 });
 
@@ -28,13 +32,22 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //Authentication routes
-    Route::get('auth/login', 'Auth\AuthController@getLogin');
-    Route::post('auth/login', 'Auth\AuthController@postLogin');
-    Route::get('auth/logout', 'Auth\AuthController@getLogout');
+    Route::get('login', 'Auth\AuthController@getLogin');
+    Route::post('login', ['as' => 'login', 'uses' => 'Auth\AuthController@postLogin']);
+    Route::get('logout', 'Auth\AuthController@getLogout');
     
     //Registration routes
-    Route::get('auth/register','Auth\AuthController@getRegister');
-    Route::post('auth/register',['as' => 'register', 'uses' => 'Auth\AuthController@postRegister']);
+    Route::get('register','Auth\AuthController@getRegister');
+    Route::post('register',['as' => 'register', 'uses' => 'Auth\AuthController@postRegister']);
+
+
+    //page routes
+    Route::get('/home', function(){
+
+    	dd(Auth::user());
+    	return view('home');
+
+    });
 
 
 });

@@ -19,7 +19,7 @@ class SocialServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Twitter::class, function(){
 
-            return new Twitter(config('services.twitter'));
+            return new Twitter(config('personal.twitter'));
 
         });
 

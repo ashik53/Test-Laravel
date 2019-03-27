@@ -11,8 +11,8 @@
   <div class= "row">	
   	<div class= "col-6 col-offset-6">
   		<h1> Login here</h1>	
-  		<form>
-
+  		<form method="POST" action= {{ route('login') }}>
+        {!! csrf_field() !!}
   			<div class = "form-group"> 
                 <label for="email">Email</label>
                 <input class = "form-control" type="text" name="email" > 
