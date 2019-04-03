@@ -15,9 +15,14 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('owner_id')->nullable();
+            
             $table->string('title');
             $table->text('description');
             $table->timestamps();
+
+            $table->foreign('owner_id')->references('id')->on('users');
+
         });
     }
 
@@ -28,6 +33,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-      //   Schema::dropIfExists('projects');
+         Schema::dropIfExists('projects');
     }
 }

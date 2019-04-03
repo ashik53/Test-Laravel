@@ -7,7 +7,7 @@
 @section('content')
 
 
-	<p>Page name : {{ $name}} </p> 
+	<p>welcome page </p> 
 
 
 

@@ -11,7 +11,7 @@
 
 		<div class="form-group">
 			<label for = "title"> Project Name: </label>
-			<input  name ="title" class ="form-control" type ="text" placeholder =" {{ $project->title }}"> 
+			<input  name ="title" class ="form-control" type ="text" value=" {{ $project->title }}"> 
 		</div> <!-- title div -->
 		
 		<div class="form-group">
@@ -22,6 +22,8 @@
 		<button type ="submit" class ="btn btn-success btn-lg"> Update Project </button>
 
 	</form>
+
+	@include('errors')
 
 	<form method ="POST" action = "/projects/{{ $project->id }}">	
 

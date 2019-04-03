@@ -34,7 +34,7 @@ Route::group(['middleware' => ['web']], function () {
     //Authentication routes
     Route::get('login', 'Auth\AuthController@getLogin');
     Route::post('login', ['as' => 'login', 'uses' => 'Auth\AuthController@postLogin']);
-    Route::get('logout', 'Auth\AuthController@getLogout');
+    Route::get('logout', ['as' => 'logout','uses' => 'Auth\AuthController@getLogout']);
     
     //Registration routes
     Route::get('register','Auth\AuthController@getRegister');
@@ -43,10 +43,12 @@ Route::group(['middleware' => ['web']], function () {
 
     //page routes
     Route::get('/home', function(){
-
-    	dd(Auth::user());
-    	return view('home');
-
+        return view('home');
+    });
+    Route::get('/authenticated', function(){
+        
+        //dd(auth()->id());
+        return view('authenticated');
     });
 
 

@@ -38,12 +38,8 @@
     <body>
         <h3>
 
-            {{ dd(Auth::user()) }}
-             @if(Auth::check())
-                <h1> log in </h1>
-             @else
-                <h1> not log in</h1>
-             @endif 
+            {{ dd(auth()->id()) }}      
+
         </h3>
         <div class="container">
             <div class="content">
