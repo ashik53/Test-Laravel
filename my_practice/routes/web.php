@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/show-all', 'FileController@index');
+Route::post('upload-pdf', 'FileController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

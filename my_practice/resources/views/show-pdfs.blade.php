@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -64,14 +64,15 @@
         </style>
     </head>
     <body>
-        <form method="POST" action ="/upload-pdf"  enctype="multipart/form-data">
-            
-            @csrf
+        <ul>
+            @foreach ($docs as $doc)
 
-            <label>  Insert Your CV</label>
-            <input type="text" name="doc_name">
-            <input type="file" name="file">
-            <input type ="submit" name="submit" value="Upload">
-        </form>
+                <li> <a href="{{ $doc->jayga}}" download >cv of ashik</a> </li>
+                {{--echo  "<a href='$jayga' download> $jayga </a>"; --}}
+            
+            @endforeach
+        
+        </ul>
+
     </body>
 </html>

@@ -63,15 +63,20 @@
             }
         </style>
     </head>
-    <body>
-        <form method="POST" action ="/upload-pdf"  enctype="multipart/form-data">
-            
-            @csrf
 
-            <label>  Insert Your CV</label>
-            <input type="text" name="doc_name">
-            <input type="file" name="file">
-            <input type ="submit" name="submit" value="Upload">
-        </form>
+    <body>
+    
+        @foreach($infos as $info)
+           {{-- <li> <img src="{{ Storage::url($info->image) }}" alt="" width="100px" height="100px"> </li> --}}
+
+           <li> <embed
+               src="{{ url("/$info->image") }}"
+               style="width:600px; height:800px;"
+               frameborder="0"> </li>
+
+        @endforeach
+
+
+
     </body>
 </html>

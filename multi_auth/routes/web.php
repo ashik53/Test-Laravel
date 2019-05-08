@@ -15,14 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('view', function () {
-    return view('take_input');
-});
-
-//Route::get('/show/{id}', 'DatasController');
-Route::resource('datas', 'InfoController');
-Route::post('save-info', 'InfoController@saveData');
-Route::get('/see-all', 'InfoController@seeAll');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+//admin route
+
+Route::prefix('admin')->group(function () { 
+
+	Route::get('/', 'AdminController@index')->name('admin.dashboard');
+	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+});

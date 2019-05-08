@@ -8,6 +8,7 @@ use App\Project;
 use App\User;
 use App\Services\Twitter;
 use App\Mail\ProjectCreated;
+use Session;
 class ProjectsController extends Controller
 {
     
@@ -104,9 +105,18 @@ class ProjectsController extends Controller
 
         $project->delete();
 
+
+        Session::flash('danger', 'Successfully deleted your post');
         return redirect('/projects');
 
     }//func
+
+    public function viewMyProjects(){
+
+        
+
+
+    } //func
 
     public function validateProject(){
 

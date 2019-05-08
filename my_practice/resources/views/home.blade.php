@@ -2,22 +2,25 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
+    <form action ="/upload-pdf" method="post" enctype="multipart/form-data">
+        <label>  Insert Your CV</label>
+        <input type="text" name="doc_name">
+        <input type="file" name="file">
+        <input type ="submit" name="submit" value="Upload">
+    </form>
+
+
+
+
+
+
+
+
+
+
+
 </div>
 @endsection
